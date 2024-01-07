@@ -26,7 +26,7 @@ app.get('/api/hello', function (req, res) {
 app.get('/api/:date', function (req, res) {
   let date_string = parseInt(req.params.date);
 
-  const date = new Date.parse(date_string);
+  const date = Date.parse(date_string);
 
   if (date === NaN) return { error: 'Invalid Date' };
 
