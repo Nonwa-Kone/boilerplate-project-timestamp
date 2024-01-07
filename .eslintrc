@@ -1,0 +1,6 @@
+{
+    "extends": ["airbnb", "express"],
+    "rules": {
+        "no-alert": "error"
+    }
+}
