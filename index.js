@@ -24,13 +24,14 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api/:date', function (req, res) {
-  let paramsDate = parseInt(req.params.date);
+  let date_string = parseInt(req.params.date);
 
-  const date = new Date(paramsDate);
+  const date = new Date.parse(date_string);
 
-  let dateUNIX = Date.now(date);
+  if (date === NaN) return { error: 'Invalid Date' };
+
   let dateUTC = new Date(date);
-  res.json({ unix: dateUNIX, utc: dateUTC.toISOString() });
+  res.json({ unix: date, utc: dateUTC.toISOString() });
 });
 
 // listen for requests :)
